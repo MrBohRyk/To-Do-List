@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgb(214, 214, 180);
+      }
+
+      .container-wraper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .container {
+        background-color: rgb(209, 199, 144);
+        margin-top: 20px;
+        width: 300px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      .name {
+        font-size: 25px;
+        margin-top: 10px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        text-align: center;
+      }
+
+      .input {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        width: 200px;
+        border-radius: 20px;
+        border-color: rgb (192, 192, 192);
+        padding: 5px 10px;
+      }
+
+      .list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .item {
+        display: flex;
+        background-color: white;
+        padding: 10px;
+        width: 80%;
+        border-radius: 20px;
+        gap: 10px;
+      }
+
+      button {
+        width: 70px;
+        border-radius: 20px;
+        border-color: rgb(192, 192, 192);
+        padding: 5px;
+      }
+
+      .item-name {
+        width: 100%;
+      }
+
+      span {
+        color: red;
+        background-color: rgb(229, 160, 160);
+        border-radius: 8px;
+        width: 15px;
+        text-align: center;
+      }
+
+      .statistic {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        color: rgb(68, 68, 68);
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .item-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        background-color: white;
+        padding: 5px 10px;
+        border-radius: 15px;
+      }
+      .delete__item {
+        border: none;
+        background-color: rgb(255, 178, 178);
+        color: rgb(185, 0, 0);
+        width: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-wraper">
+      <div id="myDiv" class="container">
+        <h1 class="name">To Do список</h1>
+
+        <div class="input">
+          <input id="input" placeholder="Ім'я to do" type="text" />
+          <button onclick="onAddClick()">Додати</button>
+        </div>
+
+        <div class="list"></div>
+
+        <div id="statistic" class="statistic">
+          <p id="usogo">Усього: 0</p>
+          <p id="vykonano">Виконано: 0</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // dokument dlia vzaemodii z html
+
+      function onAddClick() {
+        const list = document.getElementsByClassName("list")[0];
+
+        const container = document.createElement("div");
+        container.className = "item-container";
+        list.appendChild(container);
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        container.appendChild(checkbox);
+
+        const text = document.createElement("p");
+        text.style = "flex-grow: 1";
+        text.innerText = " Losos";
+        container.appendChild(text);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete__item";
+        deleteButton.innerText = "x";
+        container.appendChild(deleteButton);
+      }
+
+      function createElement() {
+        //
+      }
+
+      const person = {
+        name: "John",
+        age: 13,
+        showName: function () {
+          console.log(this.name);
+        },
+
+        showAge: function () {
+          console.log(this.age);
+        },
+      };
+
+      person.showName();
+      person.showAge();
+      //console.log(person);
+
+      const person2 = {
+        name: "Ihor",
+        lastName: "Honchar",
+        age: 22,
+
+        showName: function () {
+          console.log(this.name);
+        },
+
+        showLastName: function () {
+          console.log(this.lastName);
+        },
+
+        showAge: function () {
+          console.log(this.age);
+        },
+
+        walk: function () {},
+      };
+
+      person2.showName();
+      person2.showLastName();
+      person2.showAge();
+      person2.walk();
+
+      function vuvestuAge(person) {
+        console.log(person.age);
+      }
+
+      vuvestuAge(person);
+      vuvestuAge(person2);
+
+      //console.log(person2)
+      /*
+      stvorulu funkciy,
+      dodalu argyment fynkcii - myPerson
+      vuklukalu funckicy ta peredalu person
+      person pokladetsia v myPerson argument
+      */
+
+      function vuvestyImia(myPerson) {
+        console.log(myPerson.name);
+      }
+
+      vuvestyImia(person);
+      vuvestyImia(person2);
+
+      /*
+        "bohdan" - string, stroka, text
+        123 - number, cufru
+        bohdan - zminna, imia zminnoi
+
+        variables - shovusche dannyx.
+        const|let varName = value;
+
+        functions
+        function funcName() {}
+
+        object
+
+        zadacha: vuvestu imiia zminnoi i ii znachennia
+
+        */
+
+      function showVariableNameAndValue(variableName, variableValue) {
+        console.log(variableName + " value is " + variableValue);
+      }
+
+      let name = "Bohdan";
+      name = "Roman";
+      showVariableNameAndValue("name", name);
+      //console.log("'name' value is " + name);
+
+      let age = 13;
+      age = 22;
+      showVariableNameAndValue("age", age);
+      //console.log("'age' value is " + age);
+
+      showVariableNameAndValue("serialNumber", 13);
+
+      function showCarName(showCar) {
+        console.log("Car name is " + showCar);
+      }
+
+      //let car =
+      showCarName("BMW");
+
+      //car = "audi"
+      showCarName("audi");
+
+      function dodavania(a, b) {
+        let sumachusel = a + b;
+        return sumachusel;
+      }
+
+      const sumachusel = dodavania(2, 3);
+      console.log(sumachusel);
+    </script>
+  </body>
+</html>
